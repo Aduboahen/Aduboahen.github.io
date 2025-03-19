@@ -12,11 +12,24 @@
             padding: 50px;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .project-section {
+            text-align: left;
+        }
+        .project-section h2 {
+            margin-top: 20px;
+        }
+        .project-section pre {
+            text-align: left;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -25,6 +38,35 @@
         <h1>Welcome to Aduboahen's GitHub Page</h1>
         <p>Hello! This is a simple GitHub Pages site.</p>
         <p>Check out my projects on <a href="https://github.com/Aduboahen" target="_blank">GitHub</a>.</p>
+    </div>
+    <div class="container project-section">
+        <h2>Featured Project: P. falciparum Variant Calling Pipeline</h2>
+        <p>
+            The <strong>P. falciparum Variant Calling Pipeline</strong> is a Nextflow-based workflow designed to identify resistant genes in <em>Plasmodium falciparum</em> whole genome sequencing data. This pipeline leverages <code>bcftools</code> for variant calling and is containerized using Docker for reproducibility.
+        </p>
+        <p>
+            <a href="https://github.com/Aduboahen/pfal_variant_calling" target="_blank">View the repository on GitHub</a>
+        </p>
+        <h3>Usage Instructions:</h3>
+        <p>To use this pipeline, follow these steps:</p>
+        <pre>
+git clone https://github.com/Aduboahen/pfal_variant_calling.git
+cd pfal_variant_calling
+docker pull mugicrow/pfal_variant_call:latest
+./scripts/test_run.sh
+        </pre>
+        <p>For a single sample run:</p>
+        <pre>
+./scripts/start_docker.sh
+nextflow run pf.resistance.nf --sampleid test --reads "./input/test_{1,2}.fastq.gz" --outDir ./output -resume
+        </pre>
+        <p>For batch processing:</p>
+        <pre>
+./scripts/run_batch.sh
+        </pre>
+        <p>
+            For detailed instructions and more information, please refer to the <a href="https://github.com/Aduboahen/pfal_variant_calling/blob/master/README.md" target="_blank">README</a>.
+        </p>
     </div>
 </body>
 </html>
